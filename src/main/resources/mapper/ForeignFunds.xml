@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.cp.spider.dao.ForeignFundsMapper" >
+
+  <insert id="insertList" parameterType="list">
+    insert into foreign_funds values
+    <foreach collection="l" item="i" separator=" , ">
+        <if test='i.DateType != null and i.DateType == "1"'>
+          (#{i.DateType},
+          #{i.HdDate},
+          #{i.Hkcode},
+          #{i.SCode},
+          #{i.SName},
+          #{i.HYName},
+          #{i.HYCode},
+          #{i.ORIGINALCODE},
+          #{i.DQName},
+          #{i.DQCode},
+          #{i.ORIGINALCODE_DQ},
+          #{i.JG_SUM},
+          #{i.SharesRate},
+          #{i.NewPrice},
+          #{i.Zdf},
+          #{i.Market},
+          #{i.ShareHold},
+          #{i.ShareSZ},
+          #{i.LTZB},
+          #{i.ZZB},
+          #{i.LTSZ},
+          #{i.ZSZ},
+          #{i.ShareHold_Before_One},
+          #{i.ShareSZ_Before_One},
+          #{i.ShareHold_Chg_One},
+          #{i.ShareSZ_Chg_One},
+          #{i.ShareSZ_Chg_Rate_One},
+          #{i.LTZB_One},
+          #{i.ZZB_One}
+          )
+        </if>
+    </foreach>
+  </insert>
+</mapper>
